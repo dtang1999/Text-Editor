@@ -37,9 +37,6 @@ public class TextEditor extends JFrame {
 	private JCheckBox italicCheckBox;
 	private JCheckBox boldCheckBox;
 	
-//	private JRadioButton smallButton;
-//	private JRadioButton mediumButton;
-//	private JRadioButton largeButton;
 	
 	private JRadioButton size8Button;
 	private JRadioButton size16Button;
@@ -55,8 +52,7 @@ public class TextEditor extends JFrame {
 	private Stack<Font> textStack;
 	private Stack<Font> redoStack;
 	
-//	private Stack<doClass> textStack;
-//	private Stack<doClass> redoStack;
+
 	
 
 	/**
@@ -64,8 +60,7 @@ public class TextEditor extends JFrame {
 	 */
 	public TextEditor() {
 		// Construct text sample
-//		label = new JLabel("Big Java");
-//		add(label, BorderLayout.CENTER);
+
 		textStack = new Stack<>();
 		redoStack = new Stack<>();
 		setTitle("Zhesen Tang - 72984390");
@@ -301,7 +296,6 @@ public class TextEditor extends JFrame {
 		}
 
 		// Get font size
-
 		int size = 0;
 
 
@@ -320,96 +314,15 @@ public class TextEditor extends JFrame {
 		
 		
 		textStack.push(new Font(facename, style, size));
-//		textStack.push(new doClass(facenameCombo.getSelectedIndex(),
-//				italicCheckBox.isSelected(),
-//				boldCheckBox.isSelected(),
-//				size8Button.isSelected(),
-//				size16Button.isSelected(),
-//				size24Button.isSelected(),
-//				size32Button.isSelected(),
-//				size40Button.isSelected()
-//				));
 		
 		// Set font of text field
 		textArea.setFont(new Font(facename, style, size));
 		textArea.repaint();
-//		label.setFont(new Font(facename, style, size));
-//		label.repaint();
 	}
 	
 	
-//	class doClass {
-//		public int cI;
-//		public boolean iT;
-//		public boolean b;
-//		public boolean size8;
-//		public boolean size16;
-//		public boolean size24;
-//		public boolean size32;
-//		public boolean size40;
-//		doClass (int comboIndex, Boolean italic, Boolean bold, Boolean s8, Boolean s16, Boolean s24, Boolean s32, Boolean s40){
-//			cI = comboIndex;
-//			iT = italic;
-//			b = bold;
-//			size8 = s8;
-//			size16 = s16;
-//			size24 = s24;
-//			size32 = s32;
-//			size40 = s40;
-//			
-//		}
-//	}
-	
-//	public void doHelper(int comboIndex, Boolean italic, Boolean bold, Boolean s8, Boolean s16, Boolean s24, Boolean s32, Boolean s40) {
-//		facenameCombo.setSelectedIndex(comboIndex);
-//		italicCheckBox.setSelected(italic);
-//		boldCheckBox.setSelected(bold);
-//		size8Button.setSelected(s8);
-//		size16Button.setSelected(s16);
-//		size24Button.setSelected(s24);
-//		size32Button.setSelected(s32);
-//		size40Button.setSelected(s40);
-//		
-////		String facename = (String) facenameCombo.getSelectedItem();
-////		int style = 0;
-////		if (italicCheckBox.isSelected()) {
-////			style = style + Font.ITALIC;
-////		}
-////		if (boldCheckBox.isSelected()) {
-////			style = style + Font.BOLD;
-////		}
-////		int size = 0;
-////		if (size8Button.isSelected()) {
-////			size = 8;
-////		} else if (size16Button.isSelected()) {
-////			size = 16;
-////		} else if (size24Button.isSelected()) {
-////			size = 24;
-////		} else if (size32Button.isSelected()) {
-////			size = 32;
-////		} else if (size40Button.isSelected()) {
-////			size = 40;
-////		}
-////		
-////		// Set font of text field
-////		textArea.setFont(new Font(facename, style, size));
-////		textArea.repaint();
-//	}
-	
 	
 	public void undoEvent() {
-		
-//		System.out.println(textStack);
-//		textStack.pop();
-//		redoStack.push(textStack.pop());
-//		doHelper(textStack.lastElement().cI, 
-//				textStack.lastElement().iT, 
-//				textStack.lastElement().b, 
-//				textStack.lastElement().size8, 
-//				textStack.lastElement().size16, 
-//				textStack.lastElement().size24, 
-//				textStack.lastElement().size32, 
-//				textStack.lastElement().size40);
 		
 		redoStack.push(textStack.pop());
 		textArea.setFont(textStack.lastElement());
@@ -422,9 +335,6 @@ public class TextEditor extends JFrame {
 		textArea.repaint();
 		textStack.push(redoStack.pop());
 		
-//		doClass dc = redoStack.lastElement();
-//		doHelper(dc.cI, dc.iT, dc.b, dc.size8, dc.size16, dc.size24, dc.size32, dc.size40);
-//		textStack.push(redoStack.pop());
 	}
 	
 	
