@@ -63,7 +63,7 @@ public class TextEditor extends JFrame {
 
 		textStack = new Stack<>();
 		redoStack = new Stack<>();
-		setTitle("Zhesen Tang - 72984390");
+		setTitle("My Text Editor");
 		textArea();
 		createClearButton();
 		menus();
